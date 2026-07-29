@@ -1,2 +1,5 @@
-output_analyzer/
-output_writer/
+output_analyzer/*
+!output_analyzer/.gitkeep
+
+output_writer/*
+!output_writer/.gitkeep
