@@ -20,16 +20,17 @@ Sempre execute exatamente nesta ordem:
 
 1. Receber o caminho do arquivo PHP.
 2. Analisar o arquivo.
-3. Gerar o JSON conforme o schema abaixo.
-4. Salvar o JSON em:
+3. Caso o arquivo pareça que não está sendo utilizado (por exemplo, só o teste utiliza ele ou não tem nenhuma chamada ativa no código para o arquivo), quero que você me avise e cancele a análise.
+4. Gerar o JSON conforme o schema abaixo.
+5. Salvar o JSON em:
 
-/output_analyzer/"nome-do-arquivo".json
+/home/ixcsoft/claude-agent-migration/output_analyzer/"nome-do-arquivo".json
 
 5. Ler o JSON recém-gerado.
 6. Gerar automaticamente o texto do ticket utilizando o modelo abaixo.
 7. Salvar o ticket em:
 
-/output_writer/"nome-do-arquivo".txt
+/home/ixcsoft/claude-agent-migration/output_writer/"nome-do-arquivo".txt
 
 8. Apenas informar ao usuário:
 
@@ -111,9 +112,7 @@ Explique conceitualmente como validar o funcionamento da classe. De forma sucint
 
 Observações
 
-Caso algum Warning dependa do framework interno, Maker ou qualquer comportamento externo, informe isso.
-
-Caso algum campo não possua informação, utilize lista vazia ou string vazia.
+Caso tenha algo muito estranho que você notou, informe aqui. Não deve ser utilizado sempre. Seja sucinto e resumido nesse caso.
 
 ===========================================================
 GERAÇÃO DO TICKET
@@ -163,13 +162,11 @@ INTRODUÇÃO
 
 Se fatal_error.existe == false:
 
-Neste arquivo não teremos ponto de quebra, apenas mudanças na forma como o PHP 7.4 e 8.0 lidam com índices em variáveis e arrays que são nulos. Muito provavelmente estes valores nunca serão nulos por conta do Maker, mas vale pontuar para documentação.
+Neste arquivo não teremos ponto de quebra, apenas mudanças na forma como o PHP 7.4 e 8.0 lidam com índices em variáveis e arrays que são nulos. Muito provavelmente estes valores nunca serão nulos por conta do Maker.
 
 Se fatal_error.existe == true:
 
-Neste arquivo existe potencial ponto de quebra durante a migração para o PHP 8.0:
-
-{fatal_error.descricao}
+Neste arquivo teremos possíveis pontos de quebra de código!
 
 ===========================================================
 
@@ -201,13 +198,13 @@ Passou de NOTICE para WARNING: {tipo}
 
 Caso exista descrição, escreva-a logo abaixo do cabeçalho.
 
-Depois liste todas as ocorrências.
+Depois liste todas as ocorrências com um ";" no final de cada ocorrência".
 
 ===========================================================
 
 COMO TESTAR
 
-Escreva:
+Filtre a opção mais fácil para teste via interface e escreva de forma conceituala, citando o produto e como o usuário final pode facilmente testar:
 
 Este arquivo pode ser validado da seguinte forma:
 
@@ -215,11 +212,7 @@ Este arquivo pode ser validado da seguinte forma:
 
 ===========================================================
 
-OBSERVAÇÕES
 
-Caso existam observações no JSON, utilize-as para complementar o texto quando fizer sentido, sem alterar a estrutura principal.
-
-===========================================================
 
 REGRAS IMPORTANTES
 
