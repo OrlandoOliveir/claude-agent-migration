@@ -110,10 +110,6 @@ Como testar
 
 Explique conceitualmente como validar o funcionamento da classe. De forma sucinta e resumida.
 
-Observações
-
-Caso tenha algo muito estranho que você notou, informe aqui. Não deve ser utilizado sempre. Seja sucinto e resumido nesse caso.
-
 ===========================================================
 GERAÇÃO DO TICKET
 ===========================================================
